@@ -1,0 +1,29 @@
+query RunInput {
+  cart {
+    lines {
+      id
+        fabricLength: attribute(key: "giftWrap") {
+        value
+      }
+      quantity
+      cost {
+        amountPerQuantity {
+          amount
+          currencyCode
+        }
+      }
+      merchandise {
+        ...on ProductVariant {
+          id
+          __typename
+          title
+          product {
+            title
+            handle
+          }
+        }
+      }
+    }
+  }
+ 
+}
