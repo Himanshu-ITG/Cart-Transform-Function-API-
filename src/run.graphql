@@ -2,10 +2,10 @@ query RunInput {
   cart {
     lines {
       id
-        fabricLength: attribute(key: "giftWrap") {
+      quantity
+      bundleID: attribute(key: "bundleID") {
         value
       }
-      quantity
       cost {
         amountPerQuantity {
           amount
@@ -13,17 +13,10 @@ query RunInput {
         }
       }
       merchandise {
-        ...on ProductVariant {
+        ... on ProductVariant {
           id
-          __typename
-          title
-          product {
-            title
-            handle
-          }
         }
       }
     }
   }
- 
 }
